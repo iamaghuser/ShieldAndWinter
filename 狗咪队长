@@ -1,0 +1,88 @@
+public class 狗咪队长 extends Character{
+
+    public static boolean once = true;
+    public boolean isOnce = true;
+
+    @Override
+    public void fight(){
+        System.out.println("--------------------------------");
+        System.out.println("Steve开始公鸡！！！（请选择数字）");
+
+            if(once) {
+                System.out.println("1.普攻");
+                System.out.println("2.扯面具");
+                System.out.println("3.盾牌公鸡");
+                int choice = Main.sc.nextInt();
+
+                switch (choice) {
+                    case 1 -> normal();
+                    case 2 -> mask();
+                    case 3 -> shield();
+                    default -> {
+                        System.out.println("输入错误，again...");
+                        fight();
+                    }
+                }
+            }
+            else{
+                System.out.println("1.普攻");
+                System.out.println("2.盾牌公鸡");
+                System.out.println("3.放弃公鸡");
+                int choice = Main.sc.nextInt();
+
+                switch (choice) {
+                    case 1 -> normal();
+                    case 2 -> shield();
+                    case 3 -> slogan();
+                    default -> {
+                        System.out.println("输入错误，again...");
+                        fight();
+                    }
+                }
+            }
+            Main.homoChecker();
+    }
+
+    public void shield(){//盾牌公鸡
+        Main.Bucky.setHp(Main.Bucky.getHp()-30);
+        setHomo(getHomo()+20);
+    }
+
+    public void mask(){//扯面具
+        setHp(getHomo()+200);
+        Main.typeOut("狗咪：        Bucky?     ?");
+        use(Main.Bucky);
+        once = false;
+        use3(Main.Bucky);
+        System.out.println("Bucky is brainwashed by hydra nowwwwwwww");
+    }
+
+    public void normal(){//普通
+        Main.Bucky.setHp(Main.Bucky.getHp()-10);
+        setHomo(getHomo()+10);
+    }
+
+    public void slogan(){//好兄弟一起走
+        setHp(getHp()+10);
+        setHomo(getHomo()+150);
+        if(isOnce) {
+            Main.typeOut("狗咪：I am not gonna fight with you");
+            Main.typeOut("     cuz, cuz...");
+            Main.typeOut("     I am with you till the end of line");
+            isOnce = false;
+        }
+        use2(Main.Bucky);
+    }
+
+    public void use(小熊冬 B){//谁他妈是Bucky
+        B.mask2();
+    }
+
+    public void use2(小熊冬 B){//结婚宣言
+        B.slogen2();
+    }
+
+    public void use3(小熊冬 B){//悲伤的。
+        B.brainWash();
+    }
+}
