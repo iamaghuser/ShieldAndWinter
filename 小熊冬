@@ -1,0 +1,52 @@
+public class 小熊冬 extends Character{
+
+    @Override
+    public void fight(){
+        System.out.println("--------------------------------");
+        System.out.println("Winter开始公鸡！！！（请选择数字）");
+
+            System.out.println("1.普攻");
+            System.out.println("2.狙击");
+            System.out.println("3.嗨爪金属臂");
+            int choice = Main.sc.nextInt();
+
+            switch (choice) {
+                case 1 -> normal();
+                case 2 -> gun();
+                case 3 -> metalArm();
+                default -> {
+                    System.out.println("输入错误，again...");
+                    fight();
+                }
+            }
+            Main.homoChecker();
+    }
+
+    public void metalArm(){//金属臂
+        Main.Steve.setHp(Main.Steve.getHp()-50);
+        setHomo(getHomo()+30);
+    }
+
+    public void mask2(){//被扯面具
+        setHp(getHomo()+100);
+        Main.typeOut("小熊：Who the hell is Bucky?");
+    }
+
+    public void slogen2(){//听到宣言
+        setHomo(getHomo()+200);
+    }
+
+    public void normal(){//普通
+        Main.Steve.setHp(Main.Steve.getHp()-10);
+        setHomo(getHomo()+10);
+    }
+
+    public void gun() {//狙击
+        Main.Steve.setHp(Main.Steve.getHp()-30);
+        setHomo(getHomo()+30);
+    }
+
+    public void brainWash(){//被洗脑咯【悲
+        setHomo(0);
+    }
+}
