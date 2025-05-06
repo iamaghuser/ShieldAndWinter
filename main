@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class Main {
+
+    static 狗咪队长 Steve = new 狗咪队长();
+    static 小熊冬 Bucky = new 小熊冬();
+
+    public static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        System.out.println("--------------------------------");
+        System.out.println("这里有一个Steve队长和一个Winter杀手！");
+
+        while(Steve.getHp()>0 && Bucky.getHp()>0) {
+            Steve.fight();
+            Bucky.fight();
+        }
+    }
+
+    public static void typeOut(String text) {
+        for (char c : text.toCharArray()) {
+            System.out.print(c);
+            try {
+                Thread.sleep(80);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println();
+    }
+
+    public static void homoChecker(){
+        if(Steve.getHomo()>=200 && Bucky.getHomo()>=200){
+            Steve.fallInLove();
+            Bucky.fallInLove();
+            typeOut("小狗与小熊相认，幸福美满此生。就算是流浪，区区代价，何足挂齿");
+            typeOut("I AM WITH YOU TILL THE END OF LINE");
+            typeOut("I AM WITH YOU TILL THE END OF LINE");
+            System.exit(0);
+        }
+
+        if(Steve.getHp()<=0){
+            System.out.println("Steve生命垂危。喝中药调理一段时间后去找Peggy跳舞");
+        }
+        else if(Bucky.getHp()<=0){
+            if(狗咪队长.once){
+                System.out.println("两人并未相认，中士在那个雪天已永远离开");
+            }
+            else{
+                System.out.println("Winter Soldier被hydra捡回后被认为失去价值，一代传奇“冬日战士”就此落幕");
+            }
+        }
+    }
+}
